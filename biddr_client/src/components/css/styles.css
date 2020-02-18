@@ -1,0 +1,37 @@
+.Welcome {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), 
+                    rgba(0, 0, 0, 0.5)), 
+                      url("https://martechtoday.com/wp-content/uploads/2018/08/header-bidding-auction-ss-1920_uusz3n.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 90vh;
+    /* width: 100%; */
+}
+
+.Welcome-text {
+    text-align: center;
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 100%;
+}
+
+h2.Welcome-text-header {
+    font-size: 3em;
+    text-align: left;
+    margin: 0.5em 25px;
+}
+
+h1.Welcome-text-header {
+    font-size: 10em;
+    text-align: left;
+    margin: 0 25px;
+}
+
+.ui.black.button {
+    height: 35px;   
+}
