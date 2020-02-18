@@ -74,6 +74,7 @@ export const AuctionNewPage = props => {
                     name="reserve_price" 
                     id="reserve_price" 
                     placeholder="1.00" 
+                    step="1"
                 />
             </div>
 
