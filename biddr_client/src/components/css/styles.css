@@ -32,6 +32,25 @@ h1.Welcome-text-header {
     margin: 0 25px;
 }
 
-.ui.black.button {
+.ui.black.button,
+.ui.orange.button {
     height: 35px;   
+}
+
+div#site-container {
+    padding: 1em;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.User-Form {
+    max-width: 500px;
+    position: absolute;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-button {
+    text-align: center;
 }

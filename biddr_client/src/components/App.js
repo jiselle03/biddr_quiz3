@@ -46,7 +46,7 @@ const App = () => {
       
     return (
         <BrowserRouter>
-            <div className="ui container segment">
+            <div id="site-container">
             <header>
                 <NavBar 
                 currentUser={currentUser} 
