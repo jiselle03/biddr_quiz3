@@ -41,6 +41,7 @@ puts "Login with #{super_user.email} and password of '#{PASSWORD}'."
     )
     if a.valid?
         a.bids = rand(0..15).times.map do
+            random_date = Faker::Date.backward(days:365 * 5)
             Bid.new(
                 price: Faker::Number.within(range: 1..10000),
                 created_at: random_date,
