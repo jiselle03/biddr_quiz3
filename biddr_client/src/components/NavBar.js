@@ -10,7 +10,7 @@ export const NavBar = ({ currentUser, onSignOut }) => {
     };
 
     return (
-        <div className="ui secondary pointing menu">
+        <div className="ui secondary pointing menu" id="NavBar">
             <h3 className="item header">Biddr</h3>
             <NavLink exact to="/" className="item right menu">Home</NavLink>
             <NavLink exact to="/auctions" className="item">Auctions</NavLink>

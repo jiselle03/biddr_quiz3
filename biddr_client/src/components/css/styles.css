@@ -54,3 +54,11 @@ div#site-container {
 .submit-button {
     text-align: center;
 }
+
+#NavBar {
+    margin-bottom: 2em;
+}
+
+main {
+    margin: 0 2em;
+}
