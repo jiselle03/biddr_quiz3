@@ -17,4 +17,10 @@ class Api::V1::BidsController < Api::ApplicationController
             )
         end
     end
+
+    private
+
+    def bid_params
+        params.require(:bid).permit(:price)
+    end
 end
