@@ -18,11 +18,10 @@ export const SignUpPage = props => {
 
         User.create(newUser).then(res => {
             if (res.id) {
-                // Set currentUser in app to newUser then redirect to /questions
                 if (typeof props.onSignUp === "function") {
                     props.onSignUp();
                 }
-                props.history.push("/questions");
+                props.history.push("/");
             };
         });
     };
