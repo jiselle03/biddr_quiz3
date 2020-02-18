@@ -9,12 +9,26 @@ export const AuctionShowPage = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const checkReserve = auction => {
-        auction.bids.filter(bid => {
-            if (bid >= auction.reserve_price) {
-                return "The reserve price for this product has been met."
-            };
-            return "The reserve price for this product has not been met."
-        });
+      const check = auction.bids.filter(bid => bid.price >= auction.reserve_price);
+      if (check.length > 0) {
+        return "The reserve price for this product has been met."
+      } else {
+        return "The reserve price for this product has NOT been met."
+      }; 
+    };
+
+    const formatDate = (date) => {
+      let d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+  
+      if (month.length < 2) 
+          month = '0' + month;
+      if (day.length < 2) 
+          day = '0' + day;
+  
+      return [month, day, year].join('/');
     };
 
     useEffect(() => {
@@ -35,10 +49,15 @@ export const AuctionShowPage = props => {
     return (
       <main>
         <h1 className="ui header">{title}</h1>
-        <p>Added by {owner.full_name} on {created_at}</p>
-        <p>Description: {description}</p>
-        <p>Ends at: {ends_at}</p>
-        <p>{checkReserve(auction)}</p>
+        <p className="auction-item">Added by {owner.full_name} on {formatDate(created_at)}</p>
+        
+        <h4 className="ui header">Description:</h4>
+        <p className="auction-item">{description}</p>
+
+        <h4 className="ui header">Ends At:</h4>
+        <p className="auction-item">{formatDate(ends_at)}</p>
+
+        <p className="auction-item">{checkReserve(auction)}</p>
 
         <BidList bids={auction.bids} />
 
