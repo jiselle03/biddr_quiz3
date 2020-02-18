@@ -62,3 +62,11 @@ div#site-container {
 main {
     margin: 0 2em;
 }
+
+p.bid.price {
+    font-size: 1.25em;
+}
+
+.auction-item {
+    font-size: 1.25em;
+}
