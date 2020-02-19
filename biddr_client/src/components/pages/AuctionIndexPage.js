@@ -7,6 +7,20 @@ export const AuctionIndexPage = () => {
     const [auctions, setAuctions] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const formatDate = (date) => {
+      let d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+  
+      if (month.length < 2) 
+          month = '0' + month;
+      if (day.length < 2) 
+          day = '0' + day;
+    
+      return [month, day, year].join('/');
+    };
+
     useEffect(() => {
         Auction.all().then(auctions => { 
             setAuctions(auctions);
@@ -31,7 +45,7 @@ export const AuctionIndexPage = () => {
               <strong>{auction.title}</strong><br />
             </Link>
           </h3>
-          <p>Added {auction.created_at.toLocaleString()}</p>
+          <p>Added {formatDate(auction.created_at)}</p>
           </>
         ))}
 

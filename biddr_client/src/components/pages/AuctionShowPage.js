@@ -18,6 +18,7 @@ export const AuctionShowPage = props => {
 
       const newBid = {
           price: fd.get("price"),
+          current_price: fd.get("current_price"),
           auction_id: auction.id
       };
 
@@ -101,6 +102,12 @@ export const AuctionShowPage = props => {
         className="ui form" 
         onSubmit={createBid}
       >
+        <input 
+          type="hidden" 
+          name="current_price"
+          id="current_price"
+          value={currentPrice(auction)}
+        />
         <div className="field">
             <label htmlFor="price">Price</label>
             <FormErrors errors={errors} forField="reserve_price" />
@@ -110,6 +117,7 @@ export const AuctionShowPage = props => {
                 id="price" 
                 placeholder={currentPrice(auction)} 
                 step="1"
+                min={currentPrice(auction)}
             />
           </div>
           <button className="ui orange button" type="submit">
