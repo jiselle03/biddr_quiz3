@@ -14,7 +14,7 @@ class Api::V1::BidsController < Api::ApplicationController
                 redirect_to product_path(@product)
             else
                 render(
-                    json: { errors: auction.errors },
+                    json: { errors: bid.errors },
                     status: 422 #unproceesable entity
                 )
             end
@@ -29,6 +29,7 @@ class Api::V1::BidsController < Api::ApplicationController
     private
 
     def bid_params
-        params.require(:bid).permit(:price)
+        params.require(:bid).permit(:price, :current_price)
     end
+
 end
