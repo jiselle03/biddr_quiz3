@@ -28,8 +28,8 @@ users = User.all
 puts Cowsay.say("Created #{users.count} users.", :dragon)  
 puts "Login with #{super_user.email} and password of '#{PASSWORD}'."
 
-100.times do
-    random_date = Faker::Date.backward(days:365 * 5)
+25.times do
+    random_date = Faker::Date.backward(days:365 * 3)
     a = Auction.create(
         title: Faker::Commerce.product_name,
         description: Faker::Movies::StarWars.quote,
@@ -39,18 +39,18 @@ puts "Login with #{super_user.email} and password of '#{PASSWORD}'."
         updated_at: random_date,
         user: users.sample
     )
-    if a.valid?
-        a.bids = rand(0..15).times.map do
-            random_date = Faker::Date.backward(days:365 * 5)
-            Bid.new(
-                price: Faker::Number.within(range: 1..10000),
-                created_at: random_date,
-                updated_at: random_date,
-                user: users.sample
-            )
-        end
-    end
+    # if a.valid?
+    #     a.bids = rand(0..15).times.map do
+    #         random_date = Faker::Date.backward(days:365 * 3)
+    #         Bid.new(
+    #             price: Faker::Number.within(range: 1..10000),
+    #             created_at: random_date,
+    #             updated_at: random_date,
+    #             user: users.sample
+    #         )
+    #     end
+    # end
 end
 
 puts Cowsay.say("Generated #{Auction.count} auctions.", :frogs)
-puts Cowsay.say("Generated #{Bid.count} bids.", :frogs)
+# puts Cowsay.say("Generated #{Bid.count} bids.", :frogs)
