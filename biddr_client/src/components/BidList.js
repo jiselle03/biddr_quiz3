@@ -1,0 +1,29 @@
+import React from "react";
+
+export const BidList = props => {
+
+  const formatDate = (date) => {
+    let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [month, day, year].join('/');
+  };
+
+  return (
+    <div>
+      <h2 className = "ui horizontal divider header">Bids</h2>
+      {props.bids.map(bid => (
+          <p className="bid price">
+            <strong>${bid.price}.00</strong> on {formatDate(bid.created_at)}
+          </p>
+      ))}
+    </div>
+  );
+};
